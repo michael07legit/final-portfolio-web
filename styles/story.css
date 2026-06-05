@@ -1,0 +1,169 @@
+/* ── Story page overrides ── */
+body {
+  background: #FF5500;
+  color: #fff;
+}
+
+header {
+  background: #FF5500;
+}
+
+.header-center a,
+.ping-btn {
+  color: #fff;
+}
+
+.header-center a:hover,
+.ping-btn:hover {
+  color: #fff;
+}
+
+/* ── Hero ── */
+#story-hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#hero-title {
+  font-family: 'Ubuntu', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: clamp(56px, 11vw, 130px);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #fff;
+}
+
+/* ── DESKTOP: face-act section ── */
+#face-act {
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Face image stack: top 38% = high on screen but hair clears the header */
+#face-center {
+  position: absolute;
+  left: 50%;
+  top: 38%;
+  width: clamp(220px, 28vw, 380px);
+  pointer-events: none;
+}
+
+#face-center img {
+  width: 100%;
+  display: block;
+}
+
+/* faceleft / faceright sit on top of face-normal */
+#face-left,
+#face-right {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+/* Act content blocks: lower position, left or right */
+.act-content {
+  position: absolute;
+  top: 68%;
+  transform: translateY(-50%);
+  width: min(480px, calc(100% - 80px));
+}
+
+.act-content.left-content  { left: 8%; right: auto; }
+.act-content.right-content { right: 8%; left: auto; }
+
+.act-title {
+  font-family: 'Ubuntu', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: clamp(24px, 3.6vw, 50px);
+  font-weight: 500;
+  color: #fff;
+  line-height: 1.2;
+  margin-bottom: 24px;
+  will-change: transform;
+}
+
+.act-body {
+  font-family: 'Ubuntu', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: clamp(16px, 2vw, 28px);
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.92);
+  line-height: 1.75;
+  will-change: transform;
+}
+
+/* ── MOBILE: face section ── */
+#face-mobile {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobile-face-img {
+  width: clamp(220px, 70vw, 380px);
+  display: block;
+  pointer-events: none;
+}
+
+/* ── Shared pinned entry sections ── */
+.story-entry {
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.entry-content {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: min(480px, calc(100% - 80px));
+}
+
+/* Center entries: true viewport centre so title aligns with nav buttons */
+.center-entry .entry-content {
+  left: 50%;
+  right: auto;
+  transform: translate(-50%, -50%);
+  width: min(600px, calc(100% - 48px));
+}
+
+.center-entry .entry-title {
+  text-align: center;
+}
+
+/* Body text shifted right within the centered block */
+.center-entry .entry-body {
+  padding-left: 40px;
+}
+
+.entry-title {
+  font-family: 'Ubuntu', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: clamp(24px, 3.6vw, 50px);
+  font-weight: 500;
+  color: #fff;
+  line-height: 1.2;
+  margin-bottom: 24px;
+  will-change: transform;
+}
+
+.entry-body {
+  font-family: 'Ubuntu', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: clamp(16px, 2vw, 28px);
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.92);
+  line-height: 1.75;
+  will-change: transform;
+}
+
+/* ── Responsive: these MUST come after all base rules to win the cascade ── */
+@media (min-width: 768px) {
+  #face-mobile,
+  .mobile-only { display: none; }
+}
+
+@media (max-width: 767px) {
+  #face-act { display: none; }
+}

@@ -1,0 +1,78 @@
+/* ── Do page — full-screen photo slideshow, coming soon ── */
+body {
+  overflow: hidden;
+  color: #fff;
+  background: #000;
+}
+
+/* Header transparent so photos bleed through */
+header {
+  background: transparent;
+}
+
+.header-center a,
+.ping-btn {
+  color: #fff;
+}
+
+.header-center a:hover,
+.ping-btn:hover {
+  color: #fff;
+}
+
+/* ── Background slideshow ── */
+#bg-container {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+}
+
+.bg-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 80ms ease-in-out;
+}
+
+.bg-slide.active {
+  opacity: 1;
+}
+
+/* Blurred fill — extends past edges so blur fringe is off-screen */
+.bg-blur {
+  position: absolute;
+  inset: -50px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(28px) brightness(0.45) saturate(0.35);
+}
+
+/* Actual photo — cover fills the viewport, cropping as needed */
+.bg-img {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* ── Coming soon text ── */
+#coming-soon {
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+#coming-soon span {
+  font-family: 'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: clamp(40px, 7.5vw, 110px);
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  color: #fff;
+  text-shadow: 0 2px 32px rgba(0, 0, 0, 0.55);
+}

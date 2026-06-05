@@ -1,0 +1,104 @@
+/* ── Ping page — contact accordion, black + light blue ── */
+body {
+  background: #000;
+  color: #5BC8F5;
+}
+
+header {
+  background: #000;
+}
+
+.header-center a,
+.ping-btn {
+  color: #5BC8F5;
+}
+
+.header-center a:hover,
+.ping-btn:hover {
+  color: #5BC8F5;
+}
+
+/* ── Main layout — vertically centered ── */
+#ping-main {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#contact-list {
+  width: min(560px, calc(100% - 80px));
+}
+
+/* ── Contact rows ── */
+.contact-row {
+  border-top: 1px solid #5BC8F5;
+  cursor: pointer;
+}
+
+.contact-row:last-child {
+  border-bottom: 1px solid #5BC8F5;
+}
+
+.row-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 0;
+  user-select: none;
+}
+
+.row-plus {
+  font-family: 'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: clamp(20px, 2.5vw, 32px);
+  font-weight: 300;
+  color: #5BC8F5;
+  display: inline-block;
+  line-height: 1;
+  transition: transform 0.3s ease;
+  width: 1em;
+  text-align: center;
+}
+
+.contact-row.open .row-plus {
+  transform: rotate(45deg);
+}
+
+.row-label {
+  font-family: 'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: clamp(20px, 2.5vw, 32px);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: #5BC8F5;
+}
+
+/* ── Expandable detail ── */
+.row-detail {
+  overflow: hidden;
+  max-height: 0;
+  padding: 0 0 0 44px;
+  transition: max-height 0.35s ease, padding 0.35s ease;
+}
+
+.contact-row.open .row-detail {
+  max-height: 80px;
+  padding: 0 0 20px 44px;
+}
+
+.row-detail span,
+.row-detail a {
+  font-family: 'Ubuntu', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: clamp(14px, 1.8vw, 24px);
+  font-weight: 300;
+  color: #5BC8F5;
+  letter-spacing: 0.04em;
+}
+
+.row-detail a {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.row-detail a:hover {
+  opacity: 0.75;
+}
